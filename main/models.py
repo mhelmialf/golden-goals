@@ -1,7 +1,7 @@
 import uuid
 from django.db import models
 
-class News(models.Model):
+class Product(models.Model):
     CATEGORY_CHOICES = [
         ('essentials', 'Football Essentials'),   # bola, sepatu, sarung tangan kiper
         ('apparel', 'Apparel & Jerseys'),        # jersey, jaket, kaos kaki
