@@ -1,10 +1,10 @@
 # ✨ GOLDEN GOALS ✨
 ## *Where Football Dreams Become Yours*
 
-**Name      : Muhammad Helmi Alfarissi**
-**NPM       : 2406402416**
-**Class     : PBP D**
-**Link Live : [Golden Goals Site](https://muhammad-helmi41-goldengoals.pbp.cs.ui.ac.id/)**
+#### Name      : Muhammad Helmi Alfarissi
+#### NPM       : 2406402416
+#### Class     : PBP D
+#### Link Live : [Golden Goals Site](https://muhammad-helmi41-goldengoals.pbp.cs.ui.ac.id/)
 
 ## Tugas 2 - PBP 2025/2026
 
@@ -48,35 +48,28 @@
 
 1. **Client Side**
    - Proses dimulai ketika client (misalnya browser pengguna) mengirimkan HTTP Request melalui Internet untuk mengakses aplikasi web.
-
 2. **Internet → Webserver Side (Django)**
    - Request tersebut sampai ke server yang menjalankan framework Django. Django kemudian memproses request tersebut melalui beberapa tahapan.
-
 3. **`manage.py`**
    - File `manage.py` bertugas menjalankan perintah Django, termasuk menyalurkan request ke sistem URL routing.
-
 4. **`urls.py`**
    - File `urls.py` menentukan rute (URL pattern) yang sesuai dengan request dari client. Jika ada kecocokan, request diteruskan ke fungsi yang ada di `views.py`.
-
 5. **`views.py`**
    - `views.py` berisi logika untuk menangani request. Jika membutuhkan data, `views.py` akan berkomunikasi dengan `models.py`.
-
 6. **`models.py` & Database**
    - `models.py` merepresentasikan struktur tabel di database. Jika `views.py` membutuhkan data, ia akan memanggil `models.py`, yang kemudian mengakses database untuk mengambil, menambah, atau mengubah data.
-
 7. **`templates`**
    - Setelah logika selesai dijalankan, `views.py` akan merender template HTML dari folder templates. Data yang diambil dari database dapat dimasukkan ke dalam template ini.
-
 8. **Response ke Client**
    - Django kemudian mengirimkan hasil render template (berupa halaman web) kembali melalui Internet.
    - Client menerima HTTP Response berupa halaman web yang bisa dilihat di browser.
 
 ### ⚙️ Peran `settings.py` dalam Proyek Django
 
-Dalam proyek Django, `settings.py` berperan sebagai pusat konfigurasi utama. File ini dibuat otomatis saat menjalankan   `django-admin startproject`. Semua pengaturan yang mengatur perilaku proyek ada di sini. Berikut ini adalah beberapa peran penting settings.py:
+Dalam proyek Django, `settings.py` berperan sebagai pusat konfigurasi utama. File ini dibuat otomatis saat menjalankan   `django-admin startproject`. Semua pengaturan yang mengatur perilaku proyek ada di sini. Berikut ini adalah beberapa peran penting `settings.py`:
 1. **Konfigurasi Database**
    - Menentukan jenis database (PostgreSQL, MySQL, SQLite, dll.), nama database, username, password, host, dan port.
-2. **Aplikasi yang Digunakan (INSTALLED_APPS)**
+2. **Aplikasi yang Digunakan (`INSTALLED_APPS`)**
    - Menyimpan daftar aplikasi bawaan Django maupun aplikasi kustom (misalnya main) yang dipakai di proyek.
 3. **Middleware**
    - Mengatur middleware, yaitu lapisan yang memproses request/response secara global sebelum masuk ke view atau setelah keluar dari view.
@@ -85,10 +78,10 @@ Dalam proyek Django, `settings.py` berperan sebagai pusat konfigurasi utama. Fil
 5. **Konfigurasi Static & Media Files**
    - Menentukan lokasi file statis (CSS, JS, gambar) serta file yang di-upload pengguna.
 6. **Security & Debugging**
-   - Menyimpan SECRET_KEY untuk keamanan, serta flag DEBUG (True/False) untuk mengatur mode pengembangan atau produksi.
-   - Menentukan ALLOWED_HOSTS agar hanya domain tertentu yang bisa mengakses aplikasi.
+   - Menyimpan `SECRET_KEY` untuk keamanan, serta flag `DEBUG` (True/False) untuk mengatur mode pengembangan atau produksi.
+   - Menentukan `ALLOWED_HOSTS` agar hanya domain tertentu yang bisa mengakses aplikasi.
 7. **Pengaturan Internasionalisasi**
-   - Zona waktu (TIME_ZONE), bahasa (LANGUAGE_CODE), dan pengaturan format lokal lain.
+   - Zona waktu (`TIME_ZONE`), bahasa (`LANGUAGE_CODE`), dan pengaturan format lokal lain.
 
 ### 🗃️ Cara Kerja Migrasi Database di Django
 
