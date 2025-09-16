@@ -16,7 +16,7 @@
 
 {% for product in products_list %}
 <div>
-  <h2><a href="{% url 'main:show_product' product.id %}">{{ product.name }}</a></h2>
+  <h2><a href="{% url 'main:show_product' product.id %}">{{ product.product_name }}</a></h2>
 
   <p><b>{{ product.get_category_display }}</b>{% if product.is_featured %} | 
     <b>Featured</b>{% endif %}{% if product.is_product_hot %} | 
@@ -28,7 +28,7 @@
   <br />
   {% endif %}
 
-  <p>{{ product.content|truncatewords:25 }}...</p>
+  <p>{{ product.description|truncatewords:25 }}...</p>
 
   <p><a href="{% url 'main:show_product' product.id %}"><button>Read More</button></a></p>
 </div>
