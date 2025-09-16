@@ -15,6 +15,7 @@ class Product(models.Model):
     price = models.IntegerField()
     stock = models.IntegerField()
     description = models.TextField()
+    product_views = models.PositiveIntegerField(default=0)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     thumbnail = models.URLField(blank=True, null=True)
     is_featured = models.BooleanField(default=False)
