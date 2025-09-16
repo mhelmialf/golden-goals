@@ -30,7 +30,7 @@ def add_product(request):
     context = {'form': form}
     return render(request, "add_product.html", context)
 
-def show_product(request, id):
+def show_detail_product(request, id):
     product = get_object_or_404(Product, pk=id)
     product.increment_views()
 

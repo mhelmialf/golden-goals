@@ -6,7 +6,12 @@
 #### Class     : PBP D
 #### Link Live : [Golden Goals Site](https://muhammad-helmi41-goldengoals.pbp.cs.ui.ac.id/)
 
-## Tugas 2 - PBP 2025/2026
+### History Tugas
+- [**Tugas 2 - PBP 2025/2026**](https://github.com/mhelmialf/golden-goals/wiki/Tugas-2-%E2%80%90-PBP-2025-2026)
+
+---
+
+## Tugas 3 - PBP 2025/2026
 
 ### 💻 Langkah Pengimplementasian Proyek Django Secara Step-by-Step 
 

@@ -16,21 +16,27 @@
 
 {% for product in products_list %}
 <div>
-  <h2><a href="{% url 'main:show_product' product.id %}">{{ product.product_name }}</a></h2>
+  <h2><a href="{% url 'main:show_detail_product' product.id %}">{{ product.product_name }}</a></h2>
 
-  <p><b>{{ product.get_category_display }}</b>{% if product.is_featured %} | 
-    <b>Featured</b>{% endif %}{% if product.is_product_hot %} | 
-    <b>Hot</b>{% endif %} | <i>{{ product.created_at|date:"d M Y H:i" }}</i> 
-    | Views: {{ product.product_views }}</p>
+  <p>
+     <b>📌 {{ product.get_category_display }}</b> |
+     <b>💲 Rp{{ product.price }}</b>
+     {% if product.is_featured %} 
+          | <b>✨ Featured Product</b>
+     {% endif %}
+     {% if product.is_product_hot %}  
+          | <b>🔥 Hot Product</b>
+     {% endif %} 
+     </p>
 
   {% if product.thumbnail %}
   <img src="{{ product.thumbnail }}" alt="thumbnail" width="150" height="100">
   <br />
   {% endif %}
 
-  <p>{{ product.description|truncatewords:25 }}...</p>
+  <p>{{ product.description|truncatewords:20 }}...</p>
 
-  <p><a href="{% url 'main:show_product' product.id %}"><button>Read More</button></a></p>
+  <p><a href="{% url 'main:show_detail_product' product.id %}"><button>Read More</button></a></p>
 </div>
 
 <hr>
