@@ -10,7 +10,7 @@ class Product(models.Model):
         ('training', 'Training & Fitness'),      # cone, mini goal, speed ladder
     ]
     
-    name = models.CharField(max_length=50)
+    product_name = models.CharField(max_length=50)
     price = models.IntegerField()
     stock = models.IntegerField()
     description = models.TextField()

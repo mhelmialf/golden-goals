@@ -1,14 +1,44 @@
+ {% extends 'base.html' %}
+ {% block content %}
 <h1>✨ {{ application }} ✨</h1>
 <h2><i>{{ tagline }}</i></h2>
 
 <h2>⚽ Our Products</h2>
-<p> - Bola sepak (<i>Match Ball, Training Ball</i>) <br>
-     - Bola edisi khusus (<i>Golden Snitch Edition, Limited Magic Series</i>) <br>
-     - Sepatu bola (<i>Firm Ground, Soft Ground, Turf, Indoor</i>) <br>
-     - Sarung tangan kiper (<i>Keeper's Charm Gloves, Golden Grip</i>) <br>
-     - Jersey klub & tim nasional <br>
-     - Jersey custom (<i>Golden Goals Signature Kit</i>) <br>
-</p>
+<a href="{% url 'main:add_product' %}">
+     <button>+ Add New Product</button>
+</a>
+
+<hr>
+
+{% if not products_list %}
+<p>No products have been conjured yet. A little magic may bring them forth soon.</p>
+{% else %}
+
+{% for news in products_list %}
+<div>
+  <h2><a href="{% url 'main:show_product' product.id %}">{{ product.name }}</a></h2>
+
+  <p><b>{{ product.get_category_display }}</b>{% if product.is_featured %} | 
+    <b>Featured</b>{% endif %}{% if product.is_product_hot %} | 
+    <b>Hot</b>{% endif %} | <i>{{ product.created_at|date:"d M Y H:i" }}</i> 
+    | Views: {{ product.product_views }}</p>
+
+  {% if product.thumbnail %}
+  <img src="{{ product.thumbnail }}" alt="thumbnail" width="150" height="100">
+  <br />
+  {% endif %}
+
+  <p>{{ product.content|truncatewords:25 }}...</p>
+
+  <p><a href="{% url 'main:show_product' product.id %}"><button>Read More</button></a></p>
+</div>
+
+<hr>
+{% endfor %}
+
+{% endif %}
+
+<br>
 <h3>📍 Visit us Here</h3>
 <p>{{ address }}</p>
 <h3>📱 Find us Here</h3>
@@ -18,3 +48,5 @@
 <p>NPM: {{ npm }}</p>
 <p>Name: {{ name }}</p>
 <p>Class: {{ class }}</p>
+
+{% endblock content %}
