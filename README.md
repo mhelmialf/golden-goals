@@ -341,9 +341,13 @@ Asisten dosen pada tutorial 2 memberikan pendampingan yang sangat optimal. Mater
 ### 📮 Hasil API Call berupa JSON dan XML melalui Postman
 
 **1. Hasil JSON (All)**
-      
+      <img width="2560" height="1600" alt="Image" src="https://github.com/user-attachments/assets/16a374e8-2eec-4481-99c7-add1c84714ae" />
+
 **2. Hasil XML (All)**
+      <img width="2560" height="1600" alt="Image" src="https://github.com/user-attachments/assets/5a638499-99e5-4cd6-89ee-277f37d6b522" />
 
 **3. Hasil JSON (By ID)**
+      <img width="2560" height="1600" alt="Image" src="https://github.com/user-attachments/assets/64323cba-2501-46c4-9248-95fdc17dd661" />
 
 **4. Hasil XML (By ID)**
+      <img width="2560" height="1600" alt="Image" src="https://github.com/user-attachments/assets/7faeea5e-65c3-41a7-8f99-d4223081d56b" />
