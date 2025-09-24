@@ -29,6 +29,7 @@ def show_main(request):
         'name': 'Muhammad Helmi Alfarissi',
         'class':'PBP D',
         'products_list': products_list,
+        'username': request.user.username,
         'last_login': request.COOKIES.get('last_login', 'Never')
     }
 
