@@ -3,10 +3,24 @@
 <h1>✨ {{ application }} ✨</h1>
 <h2><i>{{ tagline }}</i></h2>
 
+<a href="{% url 'main:logout' %}">
+  <button>Logout</button>
+</a>
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
 <h2>⚽ Our Products</h2>
 <a href="{% url 'main:add_product' %}">
      <button>+ Add New Product</button>
 </a>
+
+<a href="?filter=all">
+    <button type="button">All Products</button>
+</a>
+
+<a href="?filter=my">
+    <button type="button">My Products</button>
+</a> 
 
 <hr>
 

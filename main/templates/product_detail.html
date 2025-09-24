@@ -21,4 +21,10 @@
     <b>🔥 Hot Product</b>
 {% endif %}
 
+{% if product.user %}
+    <p><b>🧑🏻‍💻 Creator:</b> {{ product.user.username }}</p>
+{% else %}
+    <p><b>🧑🏻‍💻 Creator:</b> Anonymous</p>
+{% endif %}
+
 {% endblock content %}

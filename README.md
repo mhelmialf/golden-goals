@@ -48,6 +48,7 @@ Dengan demikian, `csrf_token` berperan sebagai lapisan pertahanan yang mencegah 
 ### 💻 Langkah Pengimplementasian Proyek Django Secara Step-by-Step 
 
 1. **Menambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.**
+   
    Step-by-Step:
    1. Mengimport `HttpResponse` dan `Serializer` pada `views.py`
       ```python
@@ -95,6 +96,7 @@ Dengan demikian, `csrf_token` berperan sebagai lapisan pertahanan yang mencegah 
       ```
 
 2. **Membuat routing URL untuk masing-masing fungsi yang telah ditambahkan di `views.py`**
+   
    Step-by-Step:
    1. Mengimport fungsi yang telah ditambahkan di `views.py` pada `main/urls.py`
       ```python
@@ -114,6 +116,7 @@ Dengan demikian, `csrf_token` berperan sebagai lapisan pertahanan yang mencegah 
       ```
 
 3. **Membuat halaman daftar objek model dengan tombol "Add" untuk menuju form dan tombol "Detail" untuk melihat rincian objek.**
+   
    Step-by-Step:
    1. Membuat file dan direktori baru `templates/base.html` dan mengisi file tersebut dengan kerangka umum halaman web
       '''html
@@ -213,6 +216,7 @@ Dengan demikian, `csrf_token` berperan sebagai lapisan pertahanan yang mencegah 
    ```
 
 4. **Membuat page form yg di redirect dari tombol "Add" untuk menampilkan form penambahan produk**
+   
    Step-by-Step:
    1. Membuat file `forms.py` untuk model `Product` menggunakan `ModelForm`
       ```python
@@ -275,6 +279,7 @@ Dengan demikian, `csrf_token` berperan sebagai lapisan pertahanan yang mencegah 
       ```
 
 5. **Membuat page product detail yang diredirect dari button "Details" untuk menampilkan detail tiap produk.**
+   
    Step-by-Step:
    1. Membuat fungsi baru di `views.py` untuk menampilkan detail informasi produk
       ```python
