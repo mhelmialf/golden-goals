@@ -18,6 +18,7 @@ class Product(models.Model):
     description = models.TextField()
     product_views = models.PositiveIntegerField(default=0)
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
+    created_at = models.DateTimeField(auto_now_add=True)
     thumbnail = models.URLField(blank=True, null=True)
     is_featured = models.BooleanField(default=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
