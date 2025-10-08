@@ -18,6 +18,6 @@ urlpatterns = [
     path('product/<uuid:id>/delete', delete_product, name='delete_product'),
     path('add-product-ajax/', add_product_entry_ajax, name='add_product_entry_ajax'),
     path('edit-product-ajax/<uuid:product_id>/', edit_product_ajax, name='edit_product_ajax'),
-     path('delete-product-ajax/<uuid:id>/', delete_product_ajax, name='delete_product_ajax'),
+    path('delete-product-ajax/<uuid:id>/', delete_product_ajax, name='delete_product_ajax'),
 
 ]

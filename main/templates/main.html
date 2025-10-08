@@ -7,6 +7,7 @@
 
 {% block content %}
 {% include 'navbar.html' %}
+{% include 'toast.html' %}
 
 <div class="bg-gray-50 w-full pt-16 min-h-screen">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -283,7 +284,7 @@ function buildProductCard(product) {
   const isFeatured = product.is_featured;
   const isPopular = productViews > 20;
   const isOwner = CURRENT_USER_ID && String(CURRENT_USER_ID) === String(product.user_id);
-  const detailLink = `/detail/${id}/`;
+  const detailLink = `/product/${id}/`;
 
   return `
   <article class="bg-blue-900 rounded-lg border border-yellow-400 overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col">
