@@ -171,28 +171,43 @@ def delete_product(request, id):
 @csrf_exempt
 @require_POST
 def add_product_entry_ajax(request):
+    # Ambil semua data dari request
     product_name = strip_tags(request.POST.get("product_name"))
     description = strip_tags(request.POST.get("description"))
     category = request.POST.get("category")
     thumbnail = request.POST.get("thumbnail")
     price = request.POST.get("price")
     stock = request.POST.get("stock")
-    is_featured = request.POST.get("is_featured") == 'on'  # checkbox handling
+    is_featured = request.POST.get("is_featured") == 'on'
     user = request.user
 
+    # 2. Lakukan validasi manual sederhana
+    if not all([product_name, description, category, price, stock]):
+        return JsonResponse({"status": "error", "message": "Semua field wajib diisi."}, status=400)
+
+    try:
+        # Coba konversi harga dan stok ke tipe data angka
+        # Jika gagal (misal diisi teks), akan loncat ke 'except'
+        valid_price = int(price)
+        valid_stock = int(stock)
+    except (ValueError, TypeError):
+        return JsonResponse({"status": "error", "message": "Harga dan Stok harus berupa angka."}, status=400)
+
+    # Jika semua aman, buat dan simpan produk baru
     new_product = Product(
         product_name=product_name,
         description=description,
         category=category,
         thumbnail=thumbnail,
-        price=price,
-        stock=stock,
+        price=valid_price,
+        stock=valid_stock,
         is_featured=is_featured,
         user=user
     )
     new_product.save()
 
-    return HttpResponse(b"CREATED", status=201)
+    # 3. Kirim respons JSON yang benar agar JavaScript mengerti
+    return JsonResponse({"status": "success", "message": "Produk berhasil ditambahkan!"}, status=201)
 
 @login_required
 @require_POST
