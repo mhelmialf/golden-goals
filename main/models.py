@@ -29,7 +29,11 @@ class Product(models.Model):
     @property
     def is_product_hot(self):
         return self.product_views > 20
-        
+    
+    @property
+    def is_product_out_of_stock(self):
+        return self.stock == 0
+    
     def increment_views(self):
         self.product_views += 1
         self.save()

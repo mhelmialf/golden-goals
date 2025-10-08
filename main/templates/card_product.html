@@ -60,13 +60,12 @@
           Read more →
         </a>
         <div class="flex space-x-2">
-        <form action="{% url 'main:edit_product' product.id %}" method="get">
-            <button type="submit" 
-                    class="bg-gray-400 text-white text-sm px-3 py-1 rounded hover:bg-gray-300 transition-colors">
-            Edit
-            </button>
-        </form>
-        
+        <button 
+          type="button"
+          class="bg-gray-400 text-white text-sm px-3 py-1 rounded hover:bg-gray-300 transition-colors edit-product-btn"
+          data-product-id="{{ product.id }}">
+          Edit
+        </button>
         <form action="{% url 'main:delete_product' product.id %}" method="post">
             {% csrf_token %}
             <button type="submit" 
@@ -85,3 +84,42 @@
     {% endif %}
   </div>
 </article>
+
+<script>
+  // Fungsi buka modal edit
+async function openEditModal(productId) {
+  try {
+    // Fetch data produk dari server
+     const response = await fetch(`/json/${productId}/`);
+     const product = await response.json();
+
+    // Isi form modal dengan data produk
+    document.querySelector('#productName').value = product.product_name;
+    document.querySelector('#productPrice').value = product.price;
+    document.querySelector('#productDescription').value = product.description;
+    document.querySelector('#productCategory').value = product.category;
+    document.querySelector('#productThumbnail').value = product.thumbnail;
+
+    // Simpan ID produk di modal untuk update nanti
+    document.querySelector('#productModal').dataset.editingId = productId;
+
+    // Ubah judul modal jadi "Edit Product"
+    document.querySelector('#modalTitle').textContent = "Edit Product";
+    document.querySelector('#submitButton').textContent = "Update";
+
+    // Tampilkan modal
+    document.querySelector('#productModal').classList.remove('hidden');
+  } catch (error) {
+    console.error("Gagal memuat data produk:", error);
+  }
+}
+
+// Event listener untuk tombol edit
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('edit-product-btn')) {
+     e.preventDefault();
+    const productId = e.target.dataset.productId;
+    openEditModal(productId);
+  }
+});
+</script>
